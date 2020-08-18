@@ -6,7 +6,7 @@ export default function MyApp({ Component, pageProps }) {
   	return (
 	  	<>
 			<Head>
-				<title>Next.js + Tailwind CSS</title>
+				<title>Recippy | No nonsense Recipes</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Component {...pageProps} />
