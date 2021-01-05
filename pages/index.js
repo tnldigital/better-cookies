@@ -4,7 +4,7 @@ export default function Home() {
     <div className="container mx-auto">
       <main className="text-center py-8">
 
-        <h1 className="text-4xl font-bold">
+        <h1 className="text-4xl font-bold mb-4">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 

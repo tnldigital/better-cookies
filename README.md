@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) & [Tailwind CSS](https://tailwindcss.com/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## What is it? 
+
+This is a boilerplate project with Next.js v10 and Tailwind v2. 
 
 ## Getting Started
 
@@ -12,7 +14,9 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file. In this barebones project, Tailwind CSS is imported in styles/index.css which is referenced in _app.js. Simply use Tailwind CSS classes in any components / pages within your app.
+## Expanding 
+
+The Tailwind config is currently only purging the /pages/ directory. If you want to create a new root level folder for components or other template files, be sure to add this to the purge array in tailwind.config.js
 
 ## Learn More
 
@@ -22,6 +26,8 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+To learn more about Tailwind, have a flick through their [docs](https://tailwindcss.com/docs).
 
 ## Deploy on Vercel
 
