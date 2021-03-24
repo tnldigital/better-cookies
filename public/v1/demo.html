@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Better Cookies Demo</title>
+        <style>
+            html, body {
+                margin: 0;
+                width: 100%;
+                height: 100%
+            }
+        </style>
+    </head>
+    <body>
+        <script src="/v1/sdk.js"></script> 
+        <script>
+            window.BetterCookies.init({
+                onInit: function(){},
+                onClose: function(){},
+                onSave: function(config){ console.log('Saved config: ', config) },
+                onAcceptAll: function(){},
+                onAcceptStatistics: function(){ console.log('Allowed statistical cookies') },
+                onAcceptMarketing: function(){ console.log('Allowed marketing cookies') },
+                onAcceptPreferences: function(){ console.log('Allowed preference cookies') }
+            })
+        </script>
+    </body>
+</html>
