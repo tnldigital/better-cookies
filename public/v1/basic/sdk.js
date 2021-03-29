@@ -5,7 +5,7 @@
 (function (window) {
 
    // Declare client initializer
-   window.BetterCookies = window.betterCookies || {}
+   window.BetterCookies = window.BetterCookies || {}
 
    // Define draw 
    BetterCookies.draw = function () {
@@ -53,16 +53,16 @@
                 box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
             }
             #bc-banner .bc-wrapper {
-                display: flex; 
                 padding: 0.5rem; 
-                align-items: center;
                 font-weight: 500;
             }
             #bc-banner .bc-wrapper .bc-content,
             #bc-banner .bc-wrapper .bc-buttons {
                padding: 15px; 
             }
-            #bc-banner .bc-wrapper .bc-content { padding-right: 50px; }
+            #bc-banner .bc-wrapper .bc-content { 
+               padding-bottom: 5px; 
+            }
             #bc-banner .bc-wrapper .bc-content .bc-title {
                font-size: 18px;
                font-weight: 600; 
@@ -76,79 +76,61 @@
                color: #666;
             }
             #bc-banner .bc-wrapper .bc-content a {
-               color: #0066FF; 
+               color: #222;
+               font-weight: 600; 
                text-decoration: none;
             }
             #bc-banner .bc-wrapper .bc-content a:hover, 
             #bc-banner .bc-wrapper .bc-content a:focus, 
             #bc-banner .bc-wrapper .bc-content a:active {
-               color: #4083E7;
+               color: #333;
             }
             #bc-banner .bc-wrapper .bc-buttons { 
                display: flex;
             }
             #bc-banner .bc-wrapper button {
-                font-size: 14px;
-                cursor: pointer;
-                display: flex; 
-                align-items: center;
-                border-radius: 6px;
-                border: 0;
-                margin: 0;
-                padding: 10px 50px;
-                -webkit-appearance: none;
-                transition: all 0.2s ease;
-                background-color: rgb(5, 150, 105); 
-                color: white;
+               width: 100%;
+               font-size: 14px;
+               cursor: pointer;
+               display: flex; 
+               justify-content: center;
+               align-items: center;
+               text-align: center;
+               border-radius: 6px;
+               border: 0;
+               margin: 0;
+               padding: 10px 50px;
+               -webkit-appearance: none;
+               transition: all 0.2s ease;
+               background-color: rgb(5, 150, 105); 
+               color: white;
             }
-            #bc-banner .bc-wrapper button.grey { background-color: rgb(229, 231, 235); color: rgb(156, 163, 175); }
-            #bc-banner .bc-wrapper button.grey:hover { background-color: rgb(229, 231, 235, 0.8); }
-            #bc-banner .bc-wrapper button.green { background-color: rgb(5, 150, 105); color: white; }
-            #bc-banner .bc-wrapper button.green:hover { background-color: rgb(5, 150, 105, 0.8); }
             #bc-banner .bc-wrapper button.black { background-color: #111; color: white; }
             #bc-banner .bc-wrapper button.black:hover { background-color: #222; }
-            #bc-banner .bc-wrapper button svg {
-                width: 24px; 
-                height: 24px;
+
+            @media (min-width: 768px) { 
+               #bc-banner .bc-wrapper {
+                  display: flex; 
+                  align-items: center; 
+               }
+               #bc-banner .bc-wrapper .bc-content {
+                  padding: 15px 50px 15px 15px; 
+               }
+               #bc-banner .bc-wrapper button {
+                  width: auto; 
+               }
             }
         `
 
       // Draw elements
       document.body.appendChild(styles)
       document.body.appendChild(banner)
-
-      // Trigger event 
-      BetterCookies.onInit()
-
-      // Handle banner buttons 
-      var acceptButton = document.getElementById('bc-accept-trigger')
-      acceptButton.onclick = function () {
-
-         // Store cookie 
-         document.cookie = 'bc_completed=1; expires=Fri, 31 Dec 9999 23:59:59 GMT'
-
-         // Hide banner
-         banner.style.display = 'none'
-
-         // Trigger event 
-         BetterCookies.onAccept()
-
-      }
+      
    }
 
-   // Define init
-   BetterCookies.init = function (config) {
-
-      // Define config based off parameters 
-      BetterCookies.policyLink = config.policyLink ?? null
-      BetterCookies.onInit = config.onInit ?? function () { }
-      BetterCookies.onAccept = config.onAccept ?? function () { }
-
-      // Trigger draw if we need to
-      if (!document.cookie.split('; ').find(row => row.startsWith('bc_completed'))) {
-         BetterCookies.draw()
-      }
-
+   // Trigger draw if we need to
+   if (!document.cookie.split('; ').find(row => row.startsWith('bc_completed'))) {
+      BetterCookies.draw()
    }
-
+   
 })(window);
