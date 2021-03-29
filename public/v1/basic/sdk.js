@@ -131,10 +131,15 @@
          banner.style.display = 'none'
       }
 
-      // Close banner on accept
+      // On accept click 
       var acceptButton = document.getElementById('bc-accept-all-trigger')
       acceptButton.onclick = function () {
-        closeBanner()
+
+         // Close banner 
+         closeBanner()
+
+         // Store cookie 
+         document.cookie = 'bc_completed=1; expires=Fri, 31 Dec 9999 23:59:59 GMT'
       }
 
    }
@@ -143,5 +148,5 @@
    if (!document.cookie.split('; ').find(row => row.startsWith('bc_completed'))) {
       BetterCookies.draw()
    }
-   
+
 })(window);
