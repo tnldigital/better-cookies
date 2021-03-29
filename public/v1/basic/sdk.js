@@ -125,7 +125,18 @@
       // Draw elements
       document.body.appendChild(styles)
       document.body.appendChild(banner)
-      
+
+      // Helper functions 
+      var closeBanner = function () {
+         banner.style.display = 'none'
+      }
+
+      // Close banner on accept
+      var acceptButton = document.getElementById('bc-accept-all-trigger')
+      acceptButton.onclick = function () {
+        closeBanner()
+      }
+
    }
 
    // Trigger draw if we need to
