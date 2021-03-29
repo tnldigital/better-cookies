@@ -133,7 +133,7 @@
       }
 
       // On accept click 
-      var acceptButton = document.getElementById('bc-accept-all-trigger')
+      var acceptButton = document.getElementById('bc-accept-trigger')
       acceptButton.onclick = function () {
 
          // Close banner 
