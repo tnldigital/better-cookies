@@ -22,7 +22,7 @@
       banner.innerHTML = `<div class="bc-card">
             <div class="bc-wrapper">
                <div class="bc-content">
-                    <span class="bc-body">We use cookies to help personalise content, tailor and measure ads, and provide a safer experience. By navigating the site, you agree to the use of cookies to collect information on and off this website. Read our ${BetterCookies.policyLink ? '<a href=' + BetterCookies.policyLink + '">cookie policy</a>' : 'cookie policy'} to learn more.</span>
+                    <span class="bc-body">We use cookies to help personalise content, tailor and measure ads, and provide a safer experience. By navigating the site, you agree to the use of cookies to collect information on and off this website. Read our ${BetterCookies.policyLink ? '<a href="' + BetterCookies.policyLink + '" target="_BLANK">cookie policy</a>' : 'cookie policy'} to learn more.</span>
                 </div>
                 <div class="bc-buttons">
                     <button id="bc-accept-trigger" type="button" class="black">
@@ -38,6 +38,7 @@
                 box-sizing: border-box;
             }
             #bc-banner {
+                width: 100vw;
                 position: fixed; 
                 bottom: 0;
                 left: 0;
@@ -79,7 +80,7 @@
             #bc-banner .bc-wrapper .bc-content a {
                color: #222;
                font-weight: 600; 
-               text-decoration: none;
+               text-decoration: underline;
             }
             #bc-banner .bc-wrapper .bc-content a:hover, 
             #bc-banner .bc-wrapper .bc-content a:focus, 
@@ -145,9 +146,17 @@
 
    }
 
-   // Trigger draw if we need to
-   if (!document.cookie.split('; ').find(row => row.startsWith('bc_completed'))) {
-      BetterCookies.draw()
+   // Define init
+   BetterCookies.init = function (config) {
+
+      // Define config based off parameters 
+      BetterCookies.policyLink = config.policyLink
+   
+      // Trigger draw if we need to
+      if (!document.cookie.split('; ').find(row => row.startsWith('bc_completed'))) {
+         BetterCookies.draw()
+      }
+
    }
 
 })(window);
