@@ -62,6 +62,7 @@
                 box-sizing: border-box;
             }
             #bc-banner {
+                width: 100vw;
                 position: fixed; 
                 bottom: 0;
                 left: 0;

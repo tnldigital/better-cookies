@@ -38,6 +38,8 @@
                 box-sizing: border-box;
             }
             #bc-banner {
+                display: flex; 
+                justify-content: start;
                 width: 100vw;
                 position: fixed; 
                 bottom: 0;
@@ -50,7 +52,7 @@
             #bc-banner .bc-card {
                 display: flex; 
                 background: white;
-                border: 1px solid #F3F4F6;
+                border: 1px solid #f0f0f0;
                 border-radius: 10px;
                 box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
             }
@@ -122,6 +124,12 @@
                   width: auto; 
                }
             }
+
+            @media (min-width: 1536px) { 
+               #bc-banner .bc-wrapper {
+                  max-width: 50vw;
+               }
+            }
         `
 
       // Draw elements
@@ -151,7 +159,7 @@
 
       // Define config based off parameters 
       BetterCookies.policyLink = config.policyLink
-   
+
       // Trigger draw if we need to
       if (!document.cookie.split('; ').find(row => row.startsWith('bc_completed'))) {
          BetterCookies.draw()

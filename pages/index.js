@@ -1,4 +1,5 @@
-import Link from "next/link"
+import Button from "components/Button"
+import Header from "components/Header"
 
 const features = [
    {
@@ -29,64 +30,6 @@ const features = [
 
 export default function Home() {
 
-   const Header = () => {
-
-      const NavItem = ({children, href}) => {
-         return (
-            <Link href={href}>
-               <a className="px-2 py-2 rounded-md bg-white duration-100 hover:opacty-80">{children}</a>
-            </Link>
-         )
-      }
-
-      return (
-         <div className="container mx-auto">
-            <div className="flex justify-between py-6">
-               <div>
-                  <h1 className="font-bold text-2xl text-gray-600 bg-white px-2 py-2 rounded-md">
-                     <span className="text-gray-900">better</span>cookies.
-                  </h1>
-               </div>
-               <div className="flex space-x-6">
-                  <NavItem href="/docs">Docs</NavItem>
-                  <NavItem href="/login">Login</NavItem>
-               </div>
-            </div>
-         </div>
-      )
-   }
-
-   const Button = ({ href, onClick, disabled, color, square, children }) => {
-
-      const baseClass = `flex space-x-2 items-center rounded-md ${square ? 'px-1 py-1' : 'px-4 py-2'} transition duration-200`
-      let customClass
-
-      switch (color) {
-         case "blue":
-            customClass = "bg-blue-600 text-white hover:bg-blue-500"
-            break
-         case "green":
-            customClass = "bg-green-600 text-white hover:bg-green-500"
-            break
-         case "grey":
-         default:
-            customClass = "bg-gray-800 text-white hover:bg-gray-700"
-            break
-      }
-
-      const finalClass = `${baseClass} ${customClass}`
-
-      return href ? (
-         <a href={href} className={finalClass}>
-            {children}
-         </a>
-      ) : (
-         <button type="button" className={finalClass}>
-            {children}
-         </button>
-      )
-   }
-
    return (
       <main className="flex-1 bg-hero-pattern bg-top bg-contain bg-no-repeat">
 
@@ -101,7 +44,7 @@ export default function Home() {
                   <h2 className="font-semibold text-2xl text-gray-600 md:text-4xl">Making the internet a better place.</h2>
                </div>
                <div className="mt-12">
-                  <Button href="#demo">
+                  <Button href="/configure">
                      <span>Configure yours now </span>
                      <div>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4">
@@ -114,8 +57,8 @@ export default function Home() {
             <div className="flex justify-center border-b">
                <div className="grid grid-cols-2 md:divide-x md:grid-cols-4">
                   {
-                     features.map(({ icon, text }) => (
-                        <div className="flex flex-col space-y-2 px-8 pt-4 pb-8">
+                     features.map(({ icon, text }, index) => (
+                        <div key={`feature-${index}`} className="flex flex-col space-y-2 px-8 pt-4 pb-8">
                            <div className="text-xl text-gray-600 font-semibold w-6 h-6 mb-2">
                               {icon}
                            </div>
