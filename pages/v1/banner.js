@@ -1,7 +1,7 @@
 import Card from "components/Card"
 import Button from "components/Button"
 
-export default function Banner({}) {
+export default function Banner({ text, link,  }) {
    return (
       <div className="h-screen flex justify-end items-end p-4 antialiased">
          <Card>

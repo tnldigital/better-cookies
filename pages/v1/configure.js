@@ -1,8 +1,8 @@
-import Card from "components/Card"
-import Heading from "components/Heading"
-import Text from "components/Text"
-import Toggle from "components/Toggle"
 import { useState } from "react"
+import Card from "components/Card"
+import Toggle from "components/Toggle"
+import { Heading, Text } from "components/Typography"
+import Link from "next/link"
 
 export default function Configure () {
 
@@ -37,30 +37,6 @@ export default function Configure () {
          <button id={id} type="button" className={finalClass} onClick={onClick}>
             {children}
          </button>
-      )
-   }
-
-   const Banner = () => {
-      return (
-         <div className="p-fixed flex justify-start z-50 bottom-0 left-0 p-4">
-            <Card>
-               <div className="p-2 flex items-center space-x-5">
-                  <span className="pl-2 font-semibold">We use cookies</span>
-                  <div className="flex space-x-2">
-                     <Button id="configure-open-trigger" color="grey" square onClick={() => setShowConfig(true)}>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                        </svg>
-                     </Button>
-                     <Button id="accept-trigger" color="green" square>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                        </svg>
-                     </Button>
-                  </div>
-               </div>
-            </Card>
-         </div>
       )
    }
 
@@ -116,7 +92,7 @@ export default function Configure () {
                      </div>
                      <div>
                         <span className="text-sm">
-                           Powered by <a href="#" target="_BLANK" className="underline hover:text-gray-700">Better Cookies</a>
+                           Powered by <Link href="https://cookies.so"><a target="_BLANK" className="underline hover:text-gray-700">Better Cookies</a></Link>
                         </span>
                      </div>
                   </div>
@@ -128,9 +104,9 @@ export default function Configure () {
                   <div className="p-6 space-y-6 overflow-y-auto">
                      <div>
                         <div className="flex items-center justify-between mb-4">
-                           <div>
+                           <label>
                               <Heading>Essential cookies</Heading>
-                           </div>
+                           </label>
                            <div className="flex bg-green-100 text-green-600 text-sm px-2 rounded-full">
                               Required
                            </div>
@@ -141,9 +117,9 @@ export default function Configure () {
                      </div>
                      <div>
                         <div className="flex items-center justify-between mb-4">
-                           <div>
+                           <label htmlFor="statistical-toggle">
                               <Heading>Statistical cookies</Heading>
-                           </div>
+                           </label>
                            <Toggle id="statistical-toggle" active={config.statistical} onChange={(active) => setConfig({ ...config, statistical: active })} />
                         </div>
                         <Text>
@@ -152,9 +128,9 @@ export default function Configure () {
                      </div>
                      <div>
                         <div className="flex items-center justify-between mb-4">
-                           <div>
+                           <label htmlFor="marketing-toggle">
                               <Heading>Marketing cookies</Heading>
-                           </div>
+                           </label>
                            <Toggle id="marketing-toggle" active={config.marketing} onChange={(active) => setConfig({ ...config, marketing: active })} />
                         </div>
                         <Text>
@@ -163,9 +139,9 @@ export default function Configure () {
                      </div>
                      <div>
                         <div className="flex items-center justify-between mb-4">
-                           <div>
+                           <label htmlFor="preference-toggle">
                               <Heading>Preference cookies</Heading>
-                           </div>
+                           </label>
                            <Toggle id="preference-toggle" active={config.preference} onChange={(active) => setConfig({ ...config, preference: active })} />
                         </div>
                         <Text>
