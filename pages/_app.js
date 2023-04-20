@@ -1,7 +1,11 @@
 import Head from "next/head"
+import Script from "next/script"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 import { Toaster, toast } from "sonner"
+
+// Styles
+import "@/styles/global.css"
 
 // Fonts
 import { Inter, Space_Grotesk } from "next/font/google"
@@ -13,8 +17,6 @@ const inter = Inter({
 const spaceGrotesk = Space_Grotesk({
 	subsets: ["latin"],
 })
-
-import "@/styles/global.css"
 
 export default function MyApp({ Component, pageProps }) {
 	// Access router
@@ -37,7 +39,15 @@ export default function MyApp({ Component, pageProps }) {
 				<link rel="icon" href="/favicon.png" />
 			</Head>
 			<Component {...pageProps} />
-			<Toaster containerClassName="text-sm" />
+			<Toaster />
+			<Script id="cookie-banner">
+				{`
+          window.BetterCookies.init({
+            onInit: function () { },
+            onAccept: function () { },
+          })
+        `}
+			</Script>
 		</>
 	)
 }

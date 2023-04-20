@@ -1,14 +1,14 @@
 import Link from "next/link"
 
 export default function Button({
-	href,
-	onClick,
-	disabled,
-	size,
-	color,
-	square,
-	children,
-	block,
+	href = "",
+	onClick = () => {},
+	disabled = false,
+	size = "",
+	color = "",
+	square = false,
+	children = null,
+	block = false,
 }) {
 	const baseClass = `flex space-x-2 border items-center justify-center font-medium rounded-md ${
 		block ? "w-full" : "w-auto"
@@ -54,7 +54,12 @@ export default function Button({
 			{children}
 		</Link>
 	) : (
-		<button type="button" className={finalClass}>
+		<button
+			type="button"
+			className={finalClass}
+			disabled={disabled}
+			onClick={onClick}
+		>
 			{children}
 		</button>
 	)

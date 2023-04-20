@@ -19,10 +19,12 @@ export default function Header() {
 		<div className="w-full max-w-6xl mx-auto">
 			<div className="flex justify-center py-6">
 				<div>
-					<h1 className="font-bold text-2xl text-gray-600 bg-white px-2 py-2 rounded-md">
-						<span className="text-gray-900">better</span>
-						<span className="text-gray-600">cookies</span>.
-					</h1>
+					<Link href="/">
+						<h1 className="font-bold text-2xl text-gray-600 bg-white px-2 py-2 rounded-md">
+							<span className="text-gray-900">better</span>
+							<span className="text-gray-600">cookies</span>.
+						</h1>
+					</Link>
 				</div>
 				{/* <div className="flex space-x-6">
                <NavItem href="/docs">Docs</NavItem>
